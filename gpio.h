@@ -21,6 +21,8 @@
 #define __GPIO_H
 
 #include <stdint.h>
+#include <stdlib.h>
+#include <cstring>
 
 #undef MAX_GPIO_NUM
 #define MAX_GPIO_NUM 21

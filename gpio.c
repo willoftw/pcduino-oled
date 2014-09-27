@@ -49,7 +49,7 @@ write_to_file(int fd, char *str, int len)
     ret = write(fd, str, len);
     if ( ret <= 0 )
     {
-        debug(MSG_ERROR, _("Impossible d'écrire sur le descripteur fichier '%d'"), fd);
+        //debug(MSG_ERROR, _("Impossible d'écrire sur le descripteur fichier '%d'"), fd);
         return -1;
     }
     return ret;
@@ -72,13 +72,13 @@ gpio_hw_pin_mode(uint8_t pin, uint8_t mode)
          ret = write_to_file(gpio_mode_fd[pin], buf, sizeof(buf));
          if ( ret <= 0 )
          {
-			debug(MSG_ERROR, _("Impossible d'écrire l'état sur la brocher  '%d '"), pin);
+		//	debug(MSG_ERROR, _("Impossible d'écrire l'état sur la brocher  '%d '"), pin);
 			return;
          }
      }
      else
      {
-         debug(MSG_ERROR, _("Broche '%d' inaccessible ou mode '%d' inexistant"), pin, mode);
+      //   debug(MSG_ERROR, _("Broche '%d' inaccessible ou mode '%d' inexistant"), pin, mode);
 			return;
       }
 }
@@ -120,13 +120,13 @@ gpio_digital_write(uint8_t pin, uint8_t value)
          ret = write_to_file(gpio_pin_fd[pin], buf, sizeof(buf));
          if ( ret <= 0 )
          {
-			debug(MSG_ERROR, _("Ecriture de l'état sur la broche '%d' impossible"),  pin);
+			//debug(MSG_ERROR, _("Ecriture de l'état sur la broche '%d' impossible"),  pin);
              return;
          }
      }
      else
      {
-		debug(MSG_ERROR, _("Broche '%d' non disponible, ou mode invalide"),  pin);
+	//	debug(MSG_ERROR, _("Broche '%d' non disponible, ou mode invalide"),  pin);
 		return;
       }
 }//gpio_digital_write
@@ -151,7 +151,7 @@ gpio_digital_read(uint8_t pin)
 
         if ( ret <= 0 )
         {
-			debug(MSG_ERROR, _("Lecture de l'état de la broche '%d' impossible"),  pin);
+			//debug(MSG_ERROR, _("Lecture de l'état de la broche '%d' impossible"),  pin);
 			ret = -1;
         }
 
@@ -168,7 +168,7 @@ gpio_digital_read(uint8_t pin)
     }
     else
     {
-        debug(MSG_ERROR, _("Broche '%d' non disponible"),  pin);
+      //  debug(MSG_ERROR, _("Broche '%d' non disponible"),  pin);
         ret = -1;
     }
     return ret;
@@ -229,7 +229,7 @@ gpio_init()
 		gpio_pin_fd[i] = open(path, O_RDWR);
 		if ( gpio_pin_fd[i] < 0 )
 		{
-			debug(MSG_ERROR, _("Impossible d'ouvrir le répertoire '%s'"), path);
+		//	debug(MSG_ERROR, _("Impossible d'ouvrir le répertoire '%s'"), path);
 		}
 		else
 		{
@@ -238,7 +238,7 @@ gpio_init()
 			gpio_mode_fd[i] = open(path, O_RDWR);
 			if ( gpio_mode_fd[i] < 0 )
 			{
-				debug(MSG_ERROR, _("Impossible d'ouvrir le répertoire '%s'"), path);
+		//		debug(MSG_ERROR, _("Impossible d'ouvrir le répertoire '%s'"), path);
 			}
 		}
      }
