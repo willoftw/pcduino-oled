@@ -186,14 +186,14 @@ _oled_test()
 	}
 
 	oled_draw_line(0, 0, 127, 63,WHITE);
-	oled_clear(FALSE);
+	oled_clear(false);
 	oled_set_text_size(1);
 	oled_set_cursor(0,0);
 	oled_println("EDAMS Starting");
 	oled_set_text_size(2);
 	oled_println("Arduino synced");
 	oled_update();
-	oled_clear(FALSE);
+	oled_clear(false);
 
 	oled_draw_bmp(0,0,128,8, edams_bmp);
 }//_oled_test
@@ -215,7 +215,7 @@ oled_init()
 	cursor_y  = cursor_x    = 0;
 	textsize  = 1;
 	textcolor = textbgcolor = 0xFFFF;
-	wrap    = TRUE;
+	wrap    = true;
 
 	//Setup the pin mode
 	gpio_pin_mode(m_sda,OUTPUT);
@@ -225,7 +225,7 @@ oled_init()
 	m_pFramebuffer = (unsigned char*)malloc(SSD1306_FBSIZE);
 	if(m_pFramebuffer == 0)
 	{
-		return FALSE;
+		return false;
 	}
 	memset(m_pFramebuffer,0,SSD1306_FBSIZE);//clear it.
 
@@ -261,7 +261,7 @@ oled_init()
 
 	_oled_test();
 
-	return TRUE;
+	return true;
 }
 
 

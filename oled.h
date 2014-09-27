@@ -1,7 +1,6 @@
 #ifndef _OLED__
 #define _OLED__
 
-#include <Eina.h>
 
 #define BLACK 0
 #define WHITE 1
@@ -17,7 +16,7 @@
 #define SSD1306_CMD_DISPLAY_ON 0xAF//--turn on oled panel
 
 //initialized the ssd1306 in the setup function
-Eina_Bool oled_init();
+bool oled_init();
 void oled_shutdown();
 
 //update the framebuffer to the screen.
@@ -31,7 +30,7 @@ void oled_shutdown();
  void oled_draw_pixel(int16_t x, int16_t y, uint16_t color);
 
 //clear the screen
-void oled_clear(Eina_Bool isUpdateHW);		//définition C++:clear(bool isUpdateHW=false)
+void oled_clear(bool isUpdateHW);		//définition C++:clear(bool isUpdateHW=false)
 
 
 //GFX
