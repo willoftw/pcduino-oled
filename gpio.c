@@ -219,8 +219,8 @@ gpio_init()
 	int i;
 	char path[1024];
 
-	if(ecore_file_is_dir(GPIO_PIN_DIR) == false) 	return;
-	if(ecore_file_is_dir(GPIO_MODE_DIR) == false) 	return;
+	//if(ecore_file_is_dir(GPIO_PIN_DIR) == false) 	return;
+	//if(ecore_file_is_dir(GPIO_MODE_DIR) == false) 	return;
 
 	for( i = 0; i<= MAX_GPIO_NUM; ++i)
 	{
@@ -267,7 +267,7 @@ gpio_shutdown()
 //
 //
 void
-led_high(Gpio_Led led)
+led_high(int led)
 {
 	if(led == WHITE_LED)
 		gpio_digital_write(GPIO4, HIGH);
