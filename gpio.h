@@ -127,8 +127,8 @@ int gpio_digital_read(uint8_t pin);
 void gpio_pin_mode(uint8_t pin, uint8_t mode);
 void gpio_hw_pin_mode(uint8_t pin, uint8_t mode);
 
-void led_high(Gpio_Led led);
-void led_low(Gpio_Led led);
+void led_high(int led);
+void led_low(int led);
 
 void delay(unsigned long ms);
 void delay_us(unsigned int us);

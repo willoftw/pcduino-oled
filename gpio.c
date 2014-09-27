@@ -288,7 +288,7 @@ led_high(int led)
 //
 //
 void
-led_low(Gpio_Led led)
+led_low(int led)
 {
 	if(led == WHITE_LED)
 		gpio_digital_write(GPIO4, LOW);
