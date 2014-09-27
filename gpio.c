@@ -18,7 +18,6 @@
  * along with EDAMS. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <Ecore_File.h>
 
 #include <fcntl.h>
 #include <stdio.h>
@@ -27,7 +26,6 @@
 #include <unistd.h>
 
 #include "gpio.h"
-#include "utils.h"
 
 #define GPIO_MODE_DIR "/sys/devices/virtual/misc/gpio/mode/"
 #define GPIO_PIN_DIR "/sys/devices/virtual/misc/gpio/pin/"

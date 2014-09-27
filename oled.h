@@ -1,6 +1,8 @@
 #ifndef _OLED__
 #define _OLED__
 
+#include <stdlib.h>
+#include <cstring>
 
 #define BLACK 0
 #define WHITE 1
