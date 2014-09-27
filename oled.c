@@ -302,8 +302,7 @@ writeByte(unsigned char b)
 
 	gpio_digital_write(m_scl, LOW);
 }
-extern "C"
-{
+
 static void
 startIIC()
 {
@@ -321,7 +320,7 @@ stopIIC()
 	gpio_digital_write(m_scl, HIGH);
 	gpio_digital_write(m_sda, HIGH);
 }
-}
+
 void
 oled_draw_pixel(int16_t x, int16_t y, uint16_t color)
 {
