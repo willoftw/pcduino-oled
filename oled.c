@@ -162,7 +162,7 @@ static unsigned int height;
 int16_t cursor_x, cursor_y;
 uint16_t textcolor, textbgcolor;
 uint8_t  textsize, rotation;
-Eina_Bool wrap; // If set, 'wrap' text at right edge of display
+bool wrap; // If set, 'wrap' text at right edge of display
 
 
 void
@@ -186,21 +186,21 @@ _oled_test()
 	}
 
 	oled_draw_line(0, 0, 127, 63,WHITE);
-	oled_clear(EINA_FALSE);
+	oled_clear(FALSE);
 	oled_set_text_size(1);
 	oled_set_cursor(0,0);
 	oled_println("EDAMS Starting");
 	oled_set_text_size(2);
 	oled_println("Arduino synced");
 	oled_update();
-	oled_clear(EINA_FALSE);
+	oled_clear(FALSE);
 
 	oled_draw_bmp(0,0,128,8, edams_bmp);
 }//_oled_test
 
 
 //initialized the ssd1306 in the setup function
-Eina_Bool
+bool
 oled_init()
 {
 	//Setup hardware
@@ -215,7 +215,7 @@ oled_init()
 	cursor_y  = cursor_x    = 0;
 	textsize  = 1;
 	textcolor = textbgcolor = 0xFFFF;
-	wrap    = EINA_TRUE;
+	wrap    = TRUE;
 
 	//Setup the pin mode
 	gpio_pin_mode(m_sda,OUTPUT);
@@ -225,7 +225,7 @@ oled_init()
 	m_pFramebuffer = (unsigned char*)malloc(SSD1306_FBSIZE);
 	if(m_pFramebuffer == 0)
 	{
-		return EINA_FALSE;
+		return FALSE;
 	}
 	memset(m_pFramebuffer,0,SSD1306_FBSIZE);//clear it.
 
@@ -261,12 +261,12 @@ oled_init()
 
 	_oled_test();
 
-	return EINA_TRUE;
+	return TRUE;
 }
 
 
 void
-oled_clear(Eina_Bool isUpdateHW)
+oled_clear(bool isUpdateHW)
 {
 	memset(m_pFramebuffer,0,SSD1306_FBSIZE);//clear the back buffer.
 	if(isUpdateHW) oled_update();//update the hw immediately
@@ -626,7 +626,7 @@ oled_set_text_color(uint16_t c)
   textcolor = textbgcolor = c;
 }
 
-void oled_set_text_wrap(Eina_Bool w)
+void oled_set_text_wrap(bool w)
 {
   wrap = w;
 }
